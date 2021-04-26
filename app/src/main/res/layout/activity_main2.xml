@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#7f00ff"
+    tools:context=".Main2Activity">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="2000dp"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/fondbase" />
+
+    <Button
+        android:id="@+id/lancement"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="280dp"
+        android:background="#f8bd84"
+        android:onClick="recuperernomteam1"
+        android:text="C'est parti !" />
+
+
+
+    <EditText
+        android:id="@+id/team2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:layout_marginLeft="425dp"
+        android:ems="10"
+        android:background="#C33636"
+        android:text="Equipe 2"
+        android:textColor="#000000" />
+
+    <EditText
+        android:id="@+id/team1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="160dp"
+        android:background="#DDEF2E"
+        android:ems="10"
+        android:text="Equipe 1"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/regles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="80dp"
+        android:text="Règles" />
+
+
+</RelativeLayout>
