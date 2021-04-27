@@ -66,10 +66,7 @@ public class Main2Activity extends AppCompatActivity {
         startActivity(intent2);
     }
 
-    public void debutpartie() {
-        Intent intent3 = new Intent(this, Main3Activity.class);
-        startActivity(intent3);
-    }
+
 
     }
 

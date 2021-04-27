@@ -29,6 +29,7 @@ public int counter;
 
     private TextView minuteurtexte;
     private TextView compteur;
+    ArrayList<String> motsatrouver = new ArrayList<String>();
 
 
     @Override
@@ -42,6 +43,111 @@ public int counter;
         TextView motadeviner = findViewById(R.id.devine);
         motadeviner.setText("Cliquer pour lancer");
 
+        Intent intent = getIntent();
+        if (intent != null) {
+            String nomdutheme = "";
+            if (intent.hasExtra("THEME")) {
+                nomdutheme = intent.getStringExtra("THEME");
+
+                switch (nomdutheme) {
+                    case "Profs":
+                        motsatrouver.clear();
+
+                        motsatrouver.add("Winston");
+                        motsatrouver.add("Jousset");
+                        motsatrouver.add("Laouri Abdelaziz");
+                        motsatrouver.add("Cyril Durand");
+                        motsatrouver.add("Wolfgang Kuck");
+                        motsatrouver.add("Stephan");
+                        motsatrouver.add("Lallouche");
+                        motsatrouver.add("Darties");
+                        motsatrouver.add("Etienne Gibaud");
+                        motsatrouver.add("Philippe Laugerette");
+                        motsatrouver.add("Machetto");
+                        motsatrouver.add("Miguel Angel Rivillo Ruiz");
+                        motsatrouver.add("François Mahou");
+                        motsatrouver.add("Eric Barrandon");
+                        motsatrouver.add("Mara");
+                        motsatrouver.add("Dorveaux");
+                        break;
+
+                    case "Matières":
+                        motsatrouver.clear();
+
+                        motsatrouver.add("Maths abs");
+                        motsatrouver.add("Signaux");
+                        motsatrouver.add("OEM");
+                        motsatrouver.add("Thermo");
+                        motsatrouver.add("Méca flux");
+                        motsatrouver.add("CPO");
+                        motsatrouver.add("OMI");
+                        motsatrouver.add("Tehcno Méca");
+                        motsatrouver.add("Mécanique Générale");
+                        motsatrouver.add("BDD");
+                        motsatrouver.add("CDS");
+                        motsatrouver.add("Chimie");
+                        motsatrouver.add("Probas");
+                        motsatrouver.add("Catia");
+                        motsatrouver.add("Droit");
+                        motsatrouver.add("Anglais");
+                        motsatrouver.add("Espagnol");
+                        motsatrouver.add("Allemand");
+                        motsatrouver.add("Chinois");
+                        motsatrouver.add("Projet Innovation");
+                        motsatrouver.add("Matlab");
+                        break;
+
+                    case "Associations":
+                        motsatrouver.clear();
+
+                        motsatrouver.add("BDE");
+                        motsatrouver.add("BDS");
+                        motsatrouver.add("BDJ");
+                        motsatrouver.add("L1PT");
+                        motsatrouver.add("Helphi");
+                        motsatrouver.add("CVE");
+                        motsatrouver.add("UVA");
+                        motsatrouver.add("Apostrophe");
+                        motsatrouver.add("Good Vibes");
+                        motsatrouver.add("Les tyrans d'eau");
+                        motsatrouver.add("Alphinistes");
+                        motsatrouver.add("BDA");
+                        motsatrouver.add("BDC");
+                        motsatrouver.add("BD TECH");
+                        motsatrouver.add("EPF Projets");
+                        motsatrouver.add("EPF Sud Conseil");
+                        motsatrouver.add("BDO");
+                        break;
+
+                    case "Soirée":
+                        motsatrouver.clear();
+
+                        motsatrouver.add("Bouchon Catalan");
+                        motsatrouver.add("Ptit comptoir");
+                        motsatrouver.add("Babar");
+                        motsatrouver.add("Austra");
+                        motsatrouver.add("Antirouille");
+                        motsatrouver.add("Mustang");
+                        motsatrouver.add("Irish Corner");
+                        motsatrouver.add("Jardin du Champ de Mars");
+                        motsatrouver.add("WEI");
+                        motsatrouver.add("Soirée parrainage");
+                        motsatrouver.add("Gala");
+                        motsatrouver.add("WED");
+                        motsatrouver.add("Séjour Ski");
+                        motsatrouver.add("Beaufria");
+                        break;
+
+                    default:
+                        Toast.makeText(this, "Nous ne trouvons pas la liste que vous avez choisie ! ", Toast.LENGTH_SHORT).show();
+
+
+                }
+
+            }
+
+        }
+
 
         mot_ok = (TextView) findViewById(R.id.devine);
         mot_ok.setOnClickListener(new View.OnClickListener() {
@@ -51,14 +157,7 @@ public int counter;
                 //startstop(); //lancement timer
 
 
-                ArrayList<String> motsatrouver = new ArrayList<String>();
-                motsatrouver.add("Chateau de Versaille");
-                motsatrouver.add("Montpellier");
-                motsatrouver.add("Jousset");
-                motsatrouver.add("Winston");
-                motsatrouver.add("Dorveaux");
-                motsatrouver.add("Stephan");
-                motsatrouver.add("Jean Jacques Goldman");
+
 
                 Random random = new Random();
                 int taillelist = motsatrouver.size();
@@ -77,7 +176,7 @@ public int counter;
 
             if (points == 1) {
                 minuteurtexte = findViewById(R.id.minuteur);
-                new CountDownTimer(30000, 1000) { // adjust the milli seconds here
+                new CountDownTimer(30000, 1000) {
 
                     public void onTick(long millisUntilFinished) {
                         minuteurtexte.setText(String.valueOf(counter));
