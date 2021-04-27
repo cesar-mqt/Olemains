@@ -5,8 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ADD8E6"
-    tools:context=".Main4Activity">
+    tools:context=".Main3Activity">
 
+
+    <TextView
+        android:id="@+id/nomequipe2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textColor="#000000"
+        android:textSize="26dp"
+
+        android:text="" />
+
+
+    <Button
+        android:id="@+id/theme1"
+        android:layout_width="126dp"
+        android:layout_height="59dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="100dp"
+        android:onClick="letsgo"
+        android:text="Profs " />
+
+    <Button
+        android:id="@+id/theme2"
+        android:layout_width="126dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="480dp"
+        android:onClick="letsgo2"
+        android:text="Matières " />
+
+    <Button
+        android:id="@+id/theme3"
+        android:layout_width="126dp"
+        android:layout_height="59dp"
+        android:layout_marginLeft="130dp"
+        android:layout_marginTop="250dp"
+        android:onClick="letsgo3"
+        android:text="Associations" />
+
+    <Button
+        android:id="@+id/theme4"
+        android:layout_width="126dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="480dp"
+        android:onClick="letsgo4"
+        android:text="Soirée " />
 
 
 

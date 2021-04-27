@@ -2,7 +2,9 @@ package com.example.test;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
@@ -35,7 +37,11 @@ public class Main2Activity extends AppCompatActivity {
 
 
 
+
     }
+
+
+
 
     public void recuperernomteam1 (View view){
         //on récupère la valeur dans le edittext et on l'associe a la variable
@@ -50,9 +56,16 @@ public class Main2Activity extends AppCompatActivity {
         EditText nomequipe2 = (EditText) findViewById(R.id.team2);
         String nomteam2 = nomequipe2.getText().toString();
         //Intent pour aller à l'activité
-        Intent intent5 = new Intent(this, Main3Activity.class);
+        Intent intent5 = new Intent(this, Main5Activity.class);
         //on utilise un Extra pour stocker la variable de l'équipe et la récupérer dans l'activité suivante
         intent5.putExtra("Equipe2",nomteam2);
+
+        SharedPreferences sharedpref = getSharedPreferences("donnees", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpref.edit();
+
+        editor.putString("equipe1", nomteam1);
+        editor.putString("equipe2",nomteam2);
+        editor.commit();
 
 
         startActivity(intent4);

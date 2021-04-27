@@ -201,6 +201,9 @@ public int counter;
 
     }
 
+
+
+
     public void finmanche() {
         Intent intent3 = new Intent(this, Main5Activity.class);
         startActivity(intent3);
