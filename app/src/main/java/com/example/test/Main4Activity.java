@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.hardware.Sensor;
@@ -16,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -30,6 +32,8 @@ public int counter;
     private TextView minuteurtexte;
     private TextView compteur;
     ArrayList<String> motsatrouver = new ArrayList<String>();
+    int pointscompteur;
+    TextView rappelteam;
 
 
     @Override
@@ -39,11 +43,36 @@ public int counter;
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
 
+        SharedPreferences sharedpref = getSharedPreferences("donnees", MODE_PRIVATE);
+        String nomequipe1 = sharedpref.getString("equipe1","");
+        String tour1 = sharedpref.getString("Tour1","");
+
+        if (tour1 != ""){
+            TextView rappelnom = findViewById(R.id.nomtour);
+            rappelnom.setText(tour1);
+        }
+
+
+
+
 
         TextView motadeviner = findViewById(R.id.devine);
         motadeviner.setText("Cliquer pour lancer");
 
-        Intent intent = getIntent();
+        final Intent intent2 = getIntent();
+        if (intent2 != null){
+                int nomdutheme;
+            if (intent2.hasExtra("Tour1")) {
+                nomdutheme = intent2.getIntExtra("Tour1", 0);
+                if(nomdutheme == 1){
+                    TextView rappelnomtour = findViewById(R.id.nomtour);
+                    rappelnomtour.setText(nomequipe1);
+
+                }
+            }
+        }
+
+        final Intent intent = getIntent();
         if (intent != null) {
             String nomdutheme = "";
             if (intent.hasExtra("THEME")) {
@@ -166,13 +195,14 @@ public int counter;
 
 
                 points++;
-                int pointscompteur = points-1;
+                  pointscompteur = points-1;
 
                 TextView compteur = findViewById(R.id.comptepoints);
                 compteur.setText("Points : " + pointscompteur);
 
                 TextView motadeviner = findViewById(R.id.devine);
                 motadeviner.setText(motsatrouver.get(alea));
+
 
             if (points == 1) {
                 minuteurtexte = findViewById(R.id.minuteur);
@@ -188,7 +218,9 @@ public int counter;
                     }
 
                     public void onFinish() {
-                        finmanche();
+
+                       finmanche();
+
 
 
                     }
@@ -201,14 +233,36 @@ public int counter;
 
     }
 
-
+    private void finpartie() {
+        SharedPreferences sharedpref = getSharedPreferences("donnees", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpref.edit();
+        editor.putInt("points_equipe2",pointscompteur);
+        editor.commit();
+        Intent intent2 = new Intent(this, Main7Activity.class);
+        startActivity(intent2);
+    }
 
 
     public void finmanche() {
+
+        rappelteam = findViewById(R.id.nomtour);
+        String rappelnom = rappelteam.getText().toString();
+        SharedPreferences sharedpref = getSharedPreferences("donnees", MODE_PRIVATE);
+        String nomequipe1 = sharedpref.getString("equipe1","");
+        String nomequipe2 = sharedpref.getString("equipe2","");
+        SharedPreferences.Editor editor = sharedpref.edit();
+        Toast.makeText(this, nomequipe1, Toast.LENGTH_SHORT).show();
+
+        if (rappelnom.equals(nomequipe1)){
+        editor.putInt("points_equipe1",pointscompteur);
+        editor.commit();
         Intent intent3 = new Intent(this, Main5Activity.class);
         startActivity(intent3);
-    }
 
+        } else if(rappelnom.equals(nomequipe2)){
+            finpartie();
+        }
+    }
 
 }
 

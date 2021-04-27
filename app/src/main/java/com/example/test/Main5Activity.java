@@ -27,9 +27,15 @@ public class Main5Activity extends AppCompatActivity {
 
         SharedPreferences sharedpref = getSharedPreferences("donnees", MODE_PRIVATE);
 
-        String test = sharedpref.getString("equipe2", "");
+        String nomequipe2 = sharedpref.getString("equipe2", "");
          marchestp = findViewById(R.id.nomequipe2);
-         marchestp.setText(test);
+         marchestp.setText(nomequipe2 + " c'est a vous");
+
+
+
+        SharedPreferences.Editor editor = sharedpref.edit();
+        editor.putString("Tour1",nomequipe2);
+        editor.commit();
 
 
             }

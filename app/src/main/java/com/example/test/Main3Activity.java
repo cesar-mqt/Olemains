@@ -6,6 +6,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.view.View;
@@ -40,7 +41,15 @@ public class Main3Activity extends AppCompatActivity {
             TextView affichageequipe = (TextView) findViewById(R.id.nomequipe_qui_commence);
             affichageequipe.setText(nomteam1 + " Sélectionnez votre thème ! ");
 
+            SharedPreferences sharedpref = getSharedPreferences("donnees", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedpref.edit();
+            editor.putString("Tour1",nomteam1);
+            editor.commit();
+
+
        }
+
+
 
     }
 
@@ -80,6 +89,7 @@ public class Main3Activity extends AppCompatActivity {
         //on utilise un Extra pour stocker la variable  et la récupérer dans l'activité suivante
         intent2.putExtra("THEME",nomdutheme);
 
+
         startActivity(intent2);
     }
     public void letsgo4(View view) {
@@ -89,6 +99,8 @@ public class Main3Activity extends AppCompatActivity {
         Intent intent2 = new Intent(this, Main4Activity.class);
         //on utilise un Extra pour stocker la variable  et la récupérer dans l'activité suivante
         intent2.putExtra("THEME",nomdutheme);
+
+
 
         startActivity(intent2);
     }
