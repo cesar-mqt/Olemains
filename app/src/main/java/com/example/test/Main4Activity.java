@@ -44,7 +44,6 @@ public int counter;
 
 
         SharedPreferences sharedpref = getSharedPreferences("donnees", MODE_PRIVATE);
-        String nomequipe1 = sharedpref.getString("equipe1","");
         String tour1 = sharedpref.getString("Tour1","");
 
         if (tour1 != ""){
@@ -59,26 +58,12 @@ public int counter;
         TextView motadeviner = findViewById(R.id.devine);
         motadeviner.setText("Cliquer pour lancer");
 
-        final Intent intent2 = getIntent();
-        if (intent2 != null){
-                int nomdutheme;
-            if (intent2.hasExtra("Tour1")) {
-                nomdutheme = intent2.getIntExtra("Tour1", 0);
-                if(nomdutheme == 1){
-                    TextView rappelnomtour = findViewById(R.id.nomtour);
-                    rappelnomtour.setText(nomequipe1);
 
-                }
-            }
-        }
+        String nomtheme = sharedpref.getString("THEME","");
 
-        final Intent intent = getIntent();
-        if (intent != null) {
-            String nomdutheme = "";
-            if (intent.hasExtra("THEME")) {
-                nomdutheme = intent.getStringExtra("THEME");
 
-                switch (nomdutheme) {
+
+                switch (nomtheme) {
                     case "Profs":
                         motsatrouver.clear();
 
@@ -169,13 +154,17 @@ public int counter;
 
                     default:
                         Toast.makeText(this, "Nous ne trouvons pas la liste que vous avez choisie ! ", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(this, MainActivity.class);
+                        startActivity(intent);
+
+
 
 
                 }
 
-            }
 
-        }
+
+
 
 
         mot_ok = (TextView) findViewById(R.id.devine);
@@ -251,7 +240,6 @@ public int counter;
         String nomequipe1 = sharedpref.getString("equipe1","");
         String nomequipe2 = sharedpref.getString("equipe2","");
         SharedPreferences.Editor editor = sharedpref.edit();
-        Toast.makeText(this, nomequipe1, Toast.LENGTH_SHORT).show();
 
         if (rappelnom.equals(nomequipe1)){
         editor.putInt("points_equipe1",pointscompteur);

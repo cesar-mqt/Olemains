@@ -26,7 +26,7 @@
         android:layout_height="59dp"
         android:layout_marginLeft="130dp"
         android:layout_marginTop="100dp"
-        android:onClick="letsgo"
+        android:onClick="letsgo21"
         android:text="Profs " />
 
     <Button
@@ -35,7 +35,7 @@
         android:layout_height="59dp"
         android:layout_marginTop="100dp"
         android:layout_marginLeft="480dp"
-        android:onClick="letsgo2"
+        android:onClick="letsgo22"
         android:text="Matières " />
 
     <Button
@@ -44,7 +44,7 @@
         android:layout_height="59dp"
         android:layout_marginLeft="130dp"
         android:layout_marginTop="250dp"
-        android:onClick="letsgo3"
+        android:onClick="letsgo23"
         android:text="Associations" />
 
     <Button
@@ -53,7 +53,7 @@
         android:layout_height="59dp"
         android:layout_marginTop="250dp"
         android:layout_marginLeft="480dp"
-        android:onClick="letsgo4"
+        android:onClick="letsgo24"
         android:text="Soirée " />
 
 

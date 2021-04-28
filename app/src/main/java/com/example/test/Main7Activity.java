@@ -16,20 +16,33 @@ public class Main7Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main7);
+        TextView fin1;
+        TextView fin2;
 
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
-
         SharedPreferences sharedpref = getSharedPreferences("donnees", MODE_PRIVATE);
+        int pointsfin1 = sharedpref.getInt("points_equipe1",0);
+        int pointsfin2 = sharedpref.getInt("points_equipe2",0);
 
-        int pointfin1 = sharedpref.getInt("points_equipe1",0 );
-        int pointfin2 = sharedpref.getInt("points_equipe2", 0);
+        fin1 = findViewById(R.id.pointequipe1fin);
+        fin2 = findViewById(R.id.pointequipe2fin);
 
-        TextView equipe1points = (TextView) findViewById(R.id.pointequipe1fin);
-        equipe1points.setText(pointfin1);
 
-        TextView equipe2points = (TextView) findViewById(R.id.pointequipe2fin);
-        equipe2points.setText(pointfin2);
+
+            if (pointsfin1 != 0 && pointsfin2 != 0){
+
+                String resultat1 = "L'équipe 1 à : " + pointsfin1;
+                fin1.setText(resultat1);
+
+                String resultat2 = "L'équipe 2 à : " + pointsfin2;
+                fin2.setText(resultat2);
+
+
+
+            }
+
+
 
 
     }

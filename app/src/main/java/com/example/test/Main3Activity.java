@@ -58,48 +58,55 @@ public class Main3Activity extends AppCompatActivity {
 
 
     public void letsgo(View view) {
-
-
-        //on récupère la valeur dans le edittext et on l'associe a la variable
         String nomdutheme = "Profs";
+        SharedPreferences sharedpref = getSharedPreferences("donnees", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpref.edit();
+        editor.putString("THEME",nomdutheme);
+        editor.commit();
         //Intent pour aller à l'activité
         Intent intent2 = new Intent(this, Main4Activity.class);
-        //on utilise un Extra pour stocker la variable et la récupérer dans l'activité suivante
-        intent2.putExtra("THEME",nomdutheme);
+
 
         startActivity(intent2);
 
     }
 
     public void letsgo2(View view) {
-        //on récupère la valeur dans le edittext et on l'associe a la variable
         String nomdutheme = "Matières";
+        SharedPreferences sharedpref = getSharedPreferences("donnees", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpref.edit();
+        editor.putString("THEME",nomdutheme);
+        editor.commit();
         //Intent pour aller à l'activité
         Intent intent2 = new Intent(this, Main4Activity.class);
-        //on utilise un Extra pour stocker la variable  et la récupérer dans l'activité suivante
-        intent2.putExtra("THEME",nomdutheme);
+
 
         startActivity(intent2);
     }
+
+
     public void letsgo3(View view) {
-        //on récupère la valeur dans le edittext et on l'associe a la variable
         String nomdutheme = "Associations";
+        SharedPreferences sharedpref = getSharedPreferences("donnees", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpref.edit();
+        editor.putString("THEME",nomdutheme);
+        editor.commit();
         //Intent pour aller à l'activité
         Intent intent2 = new Intent(this, Main4Activity.class);
-        //on utilise un Extra pour stocker la variable  et la récupérer dans l'activité suivante
-        intent2.putExtra("THEME",nomdutheme);
 
 
         startActivity(intent2);
     }
-    public void letsgo4(View view) {
 
+
+    public void letsgo4(View view) {
         String nomdutheme = "Soirée";
+        SharedPreferences sharedpref = getSharedPreferences("donnees", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedpref.edit();
+        editor.putString("THEME",nomdutheme);
+        editor.commit();
         //Intent pour aller à l'activité
         Intent intent2 = new Intent(this, Main4Activity.class);
-        //on utilise un Extra pour stocker la variable  et la récupérer dans l'activité suivante
-        intent2.putExtra("THEME",nomdutheme);
-
 
 
         startActivity(intent2);
