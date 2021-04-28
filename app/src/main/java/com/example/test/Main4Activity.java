@@ -62,7 +62,7 @@ public int counter;
         String nomtheme = sharedpref.getString("THEME","");
 
 
-
+    //listes possibles, on prend celle indiqué avant grace au switch et a la donnée récupérée juste avant
                 switch (nomtheme) {
                     case "Profs":
                         motsatrouver.clear();
