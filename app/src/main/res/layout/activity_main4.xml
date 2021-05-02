@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ADD8E6"
+    android:background="#7f00ff"
     tools:context=".Main4Activity">
 
 
@@ -45,6 +45,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="220dp"
+        android:layout_height="209dp"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/fusee" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="220dp"
+        android:layout_height="209dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="480dp"
+        app:srcCompat="@drawable/fusee" />
 
 
 </RelativeLayout>
