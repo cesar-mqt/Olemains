@@ -78,7 +78,7 @@ public int counter;
                         motsatrouver.add("Etienne Gibaud");
                         motsatrouver.add("Philippe Laugerette");
                         motsatrouver.add("Machetto");
-                        motsatrouver.add("Miguel Angel Rivillo Ruiz");
+                        motsatrouver.add("Miguel Angel Rivillo");
                         motsatrouver.add("François Mahou");
                         motsatrouver.add("Eric Barrandon");
                         motsatrouver.add("Mara");
