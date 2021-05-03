@@ -1,5 +1,6 @@
 package com.example.test;
 
+//toutes les classes nécessaires sont importées ici
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -19,17 +20,21 @@ public class Main6Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main6);
 
+        //Cette commande permet de forcer l'affichage de l'écran en mode paysage (désirée pour notre jeu)
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
+
+        //lorsqu'on clique sur le bouton de retour pour revenir a l'accueil on appelle la méthode retour
         retour = (Button) findViewById(R.id.retouracc);
         retour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                reglement();
+                retour();
             }
         });
 
 
+        //on met dans le textview le texte des règles qui est donc facilement modifiable ici
         regles = findViewById(R.id.regles);
         String txtregles = "1. Constituez des équipes et entrez le nom de vos équipes dans les cadres prévus\n" +
                 "2. Un membre de l’équipe 1 choisi un des thèmes proposés\n" +
@@ -44,7 +49,9 @@ public class Main6Activity extends AppCompatActivity {
 
 
     }
-    public void reglement() {
+
+    //méthode pour revenir à l'accueil comme les méthodes vu précedemment
+    public void retour() {
         Intent intent2 = new Intent(this, Main2Activity.class);
         startActivity(intent2);
     }

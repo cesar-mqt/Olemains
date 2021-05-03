@@ -34,7 +34,6 @@
         android:id="@+id/comptepoints"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
         android:layout_alignBottom="@id/devine"
         android:textColor="#000000"
         android:textSize="24dp"
@@ -48,18 +47,30 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="220dp"
+        android:layout_width="180dp"
         android:layout_height="209dp"
         android:layout_centerVertical="true"
         app:srcCompat="@drawable/fusee" />
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="220dp"
+        android:layout_width="180dp"
         android:layout_height="209dp"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="480dp"
+        android:layout_marginLeft="525dp"
         app:srcCompat="@drawable/fusee" />
+
+    <Button
+        android:id="@+id/passer"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#7B27D1"
+        android:onClick="passerunmot"
+        android:text="PASSER"
+        android:textColor="#000000"
+        android:textSize="30dp" />
 
 
 </RelativeLayout>
